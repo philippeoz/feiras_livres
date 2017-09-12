@@ -46,17 +46,17 @@ A documentação da API fica na raiz da aplição, ou seja, assim que você inic
 Logs
 ---
 
-Os logs da api estão sendo gravados no aruivo 'api_logs.log' na pasta 'logs' que fica na raiz do projeto.
+Os logs da api estão sendo gravados no aruivo `api_logs.log` na pasta `logs` que fica na raiz do projeto.
 
 
 ---
 Testes
 ---
 
-    * 'python manage.py test' para executar todos os testes do projeto.
-    * 'coverage run --source='.' manage.py test' para executar os testes com o coverage.
-    * 'coverage report -m' para visualizar os dados do coverage no terminal.
-    * 'coverage html' para vizualizar os resultados em páginas html, será criada uma pasta 'htmlcov', abra o arquivo 'index.html' que estará dentro dela.
+    * `python manage.py test` para executar todos os testes do projeto.
+    * `coverage run --source='.' manage.py test` para executar os testes com o coverage.
+    * `coverage report -m` para visualizar os dados do coverage no terminal.
+    * `coverage html` para vizualizar os resultados em páginas html, será criada uma pasta `htmlcov`, abra o arquivo `index.html` que estará dentro dela.
 
 
 ---
@@ -65,4 +65,4 @@ Importando dados de arquivos CSV
 
 Faremos a importação a partir de um command do django.
 
-    * 'python manage.py csv_to_bd /endereco/do/arquivo.csv'
+    * `python manage.py csv_to_bd /endereco/do/arquivo.csv`
