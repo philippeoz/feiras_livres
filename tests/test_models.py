@@ -8,11 +8,11 @@ class FeiraLivreTest(TestCase):
 
     def create_feira_livre(self):
         return FeiraLivre.objects.create(
-            nome="DEINFO_AB_FEIRASLIVRES_2014",
+            nome_feira="DEINFO_AB_FEIRASLIVRES_2014",
             descricao="Controle de feiras e mercados",
-            nível_agregação="Logradouro",
+            nivel_agregacao="Logradouro",
             responsavel="SMDU/Deinfo",
-            data_referencia="2014/12/21",
+            data_referencia="2014-12-21",
             sigilo="0"
         )
 
@@ -24,7 +24,7 @@ class FeiraLivreTest(TestCase):
     def test_string_representation(self):
         feira = self.create_feira_livre()
 
-        self.assertEqual(str(feira), feira.nome)
+        self.assertEqual(str(feira), feira.nome_feira)
 
     def test_verbose_name_plural(self):
         self.assertEqual(

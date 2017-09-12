@@ -1,3 +1,4 @@
+from rest_framework import status
 from rest_framework import viewsets
 from rest_framework.response import Response
 
@@ -73,14 +74,14 @@ class FeiraLivreViewSet(viewsets.ModelViewSet,
     def destroy(self, request, pk=None):
         obj = get_object_or_404(self.get_queryset(), pk=pk)
         self.perform_destroy(obj)
-        return Response(status=200)
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
     def update(self, request, pk=None):
         obj = get_object_or_404(self.get_queryset(), pk=pk)
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.update(obj, serializer.validated_data)
-            return Response(serializer.data)
+            return Response(serializer.data, status.HTTP_204_NO_CONTENT)
         return Response(serializer.errors, status=400)
 
     def list(self, request):
@@ -91,5 +92,5 @@ class FeiraLivreViewSet(viewsets.ModelViewSet,
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status.HTTP_201_CREATED)
         return Response(serializer.errors, status=400)

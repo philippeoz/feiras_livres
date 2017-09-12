@@ -39,7 +39,7 @@ class FeiraLivre(models.Model):
     referencia = models.CharField(max_length=255, blank=True, null=True)
 
     def __str__(self):
-        return self.nome
+        return self.nome_feira
 
     class Meta:
         verbose_name = 'feira livre'

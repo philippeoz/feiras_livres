@@ -17,11 +17,12 @@ feira_list = FeiraLivreViewSet.as_view({
 
 urlpatterns = [
     # Busca
-    url(r'^busca/$', FeiraLivreViewSet.as_view({'post': 'search'})),
+    url(r'^busca/$',
+        FeiraLivreViewSet.as_view({'post': 'search'}), name='feira_search'),
 
     # Update, Delete, Detail
     url(r'^(?P<pk>[0-9]+)/$',
-        feira_delete_update_retrieve, name='feira_delete_update'),
+        feira_delete_update_retrieve, name='feira_delete_update_retrieve'),
 
     # List, Create
     url(r'^', feira_list, name='feira_list'),
