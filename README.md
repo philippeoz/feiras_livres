@@ -4,7 +4,7 @@ API - Avaliação de Conhecimentos REST
 
 Uma API desenvolvida em Python, utilizando Djando e DjangoRestFramework. 
 Que expõe os dados disponíveis em https://goo.gl/WCMv3j utilizando uma
-abordagem orientada a recursos e que atendea alguns requisitos...
+abordagem orientada a recursos e que atende a alguns requisitos...
 
 
     * GET /feiras/
@@ -30,7 +30,7 @@ Como executar?
 2. Instalar as dependências
     * `pip install -r requirements.txt`
 
-3. Depois de instaladas as dependências, basta executar o comando:
+3. Depois de instaladas as dependências, basta executar os comandos:
     * `python manage.py migrate` para gerar o banco de dados padrão (sqlite3)
     * `python manage.py runserver` para iniciar o servidor local.
 
