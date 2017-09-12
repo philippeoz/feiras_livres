@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-
+import logging
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rest_api.middleware.LoggingMiddleware'
 ]
 
 ROOT_URLCONF = 'feiras_livres.urls'
@@ -92,6 +93,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+LOGS_PATH = os.path.join(BASE_DIR, 'logs')
+API_LOG_FILE = os.path.join(LOGS_PATH, 'api_logs.log')
+REQUEST_LOGGER = logging.getLogger(API_LOG_FILE)
 
 
 # Password validation
@@ -131,3 +137,26 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Processa todos os levels de mensagens de log
+REQUEST_LOGGER.setLevel(logging.DEBUG)
+
+# criando handler
+file_handler = logging.FileHandler(API_LOG_FILE, mode='w')
+file_handler.setLevel(logging.DEBUG)
+
+# criando stream handler
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.INFO)
+
+# criando formatador e adicionando ele aos handlers
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s ')
+file_handler.setFormatter(formatter)
+stream_handler.setFormatter(formatter)
+
+# adicionando handlers aos loggers
+REQUEST_LOGGER.addHandler(file_handler)
+REQUEST_LOGGER.addHandler(stream_handler)
+
+REQUEST_LOGGER.debug("logger inicializado")
