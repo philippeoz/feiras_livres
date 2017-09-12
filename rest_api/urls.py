@@ -3,9 +3,10 @@ from django.conf.urls import url
 from rest_api.views import FeiraLivreViewSet
 
 
-feira_delete_update = FeiraLivreViewSet.as_view({
+feira_delete_update_retrieve = FeiraLivreViewSet.as_view({
     'put': 'update',
-    'delete': 'destroy'
+    'delete': 'destroy',
+    'get': 'retrieve'
 })
 
 feira_list = FeiraLivreViewSet.as_view({
@@ -15,14 +16,13 @@ feira_list = FeiraLivreViewSet.as_view({
 
 
 urlpatterns = [
-    # Update, Delete
-    url(r'^(?P<pk>[0-9]+)/$', feira_delete_update, name='feira_delete_update'),
+    # Busca
+    url(r'^busca/$', FeiraLivreViewSet.as_view({'post': 'search'})),
 
+    # Update, Delete, Detail
+    url(r'^(?P<pk>[0-9]+)/$',
+        feira_delete_update_retrieve, name='feira_delete_update'),
 
     # List, Create
     url(r'^', feira_list, name='feira_list'),
-
-    # Busca
-    url(r'^(?P<pk>[0-9]+)/saque/$',
-        FeiraLivreViewSet.as_view({'post': 'saque'})),
 ]
