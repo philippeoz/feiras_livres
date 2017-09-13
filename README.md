@@ -3,8 +3,8 @@ API - Avaliação de Conhecimentos REST
 ====
 
 Uma API desenvolvida em Python, utilizando Djando e DjangoRestFramework. 
-Que expõe os dados disponíveis em https://goo.gl/WCMv3j utilizando uma
-abordagem orientada a recursos e que atende a alguns requisitos...
+Expõe os dados disponíveis em https://goo.gl/WCMv3j utilizando uma
+abordagem orientada a recursos e atendendo a alguns requisitos...
 
 
     * GET /feiras/
@@ -40,7 +40,9 @@ Documentação
 ---
 
 A documentação da API fica na raiz da aplição, ou seja, assim que você iniciar o servidor e abrir o link principal, irá visualizar toda a documentação.
+
 Utilizando `coreapi`, temos uma interface simples e intuitiva para interagir com as funcionalidades da api.
+
 Na raiz do projeto também foi adicionado o arquivo `FeirasLivres.postman_collection.json`, uma collection com exemplos de como utilizar a api que pode ser importado no `Postman` para testar a api.
 
 
