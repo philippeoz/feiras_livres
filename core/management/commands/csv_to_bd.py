@@ -32,8 +32,12 @@ class Command(BaseCommand):
                     feira_dict[col_name] = col_value
                 feira_dict.pop('id')
                 try:
-                    FeiraLivre.objects.create(**feira_dict)
+                    feira = FeiraLivre.objects.create(**feira_dict)
+                    print("Feira '{}' cadastrada.".format(feira.nome_feira))
                 except Exception as err:
                     print(err)
+                    print("Erro ao cadastrar feira '{}'".format(
+                        feira_dict['nome_feira']))
+                    input('Pressione ENTER tecla para continuar...')
         finally:
             f.close()
