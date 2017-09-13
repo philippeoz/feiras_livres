@@ -1,0 +1,104 @@
+{
+	"variables": [],
+	"info": {
+		"name": "FeirasLivres",
+		"_postman_id": "f855e661-1bbf-67bd-2eec-4cb3364c98a0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastro de uma nova feira",
+			"request": {
+				"url": "{{api_url}}/feiras/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome_feira\": \"Feira Teste\",\n    \"descricao\": \"Esta é apenas uma feira de testes\",\n    \"nivel_agregacao\": \"3\",\n    \"responsavel\": \"Tester\",\n    \"data_referencia\": \"2014-12-31\",\n    \"sigilo\": \"3\",\n    \"longitude\": \"43124\",\n    \"latitude\": \"1234\",\n    \"setcens\": \"1\",\n    \"areap\": \"2\",\n    \"coddist\": \"3\",\n    \"distrito\": \"Teste\",\n    \"codsubpref\": \"555\",\n    \"subpref\": \"Tester\",\n    \"regiao5\": \"666\",\n    \"regiao8\": \"777\",\n    \"registro\": \"Teste\",\n    \"logradouro\": \"Mais Testes\",\n    \"numero\": \"111\",\n    \"bairro\": \"Bairro\",\n    \"referencia\": \"Rua 75\"\n}"
+				},
+				"description": "Criação de uma feira"
+			},
+			"response": []
+		},
+		{
+			"name": "Exclusão de uma feira através de seu código de registro",
+			"request": {
+				"url": "{{api_url}}/feiras/4/",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "exclusão de uma feira através de seu código de registro\nque é passdo na url"
+			},
+			"response": []
+		},
+		{
+			"name": "Alteração dos campos cadastrados de uma feira",
+			"request": {
+				"url": "{{api_url}}/feiras/10/",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 10,\n    \"nome_feira\": \"Feira Teste de Update\",\n    \"descricao\": \"Esta é apenas uma feira de teste de update\",\n    \"nivel_agregacao\": \"3333\",\n    \"responsavel\": \"Testerrrr\",\n    \"data_referencia\": \"2017-12-31\",\n    \"sigilo\": \"3333\",\n    \"longitude\": \"432412343124\",\n    \"latitude\": \"1231234124\",\n    \"setcens\": \"11\",\n    \"areap\": \"22\",\n    \"coddist\": \"33\",\n    \"distrito\": \"Testede Update\",\n    \"codsubpref\": \"555666\",\n    \"subpref\": \"Tester de Update\",\n    \"regiao5\": \"666777\",\n    \"regiao8\": \"777666\",\n    \"registro\": \"Testeee\",\n    \"logradouro\": \"Mais Testes de Update\",\n    \"numero\": \"111222\",\n    \"bairro\": \"Bairro de Update\",\n    \"referencia\": \"Rua 75 Update\"\n}"
+				},
+				"description": "Alteração dos campos cadastrados de uma feira, exceto seu código de\nregistro"
+			},
+			"response": []
+		},
+		{
+			"name": "Lista todas as feiras",
+			"request": {
+				"url": "{{api_url}}/feiras/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Listagem de todas as feiras cadastradas"
+			},
+			"response": []
+		},
+		{
+			"name": "Busca de feiras utilizando parâmetros",
+			"request": {
+				"url": "{{api_url}}/feiras/busca/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"bairro\": \"Bairro de\",\n\t\"distrito\": \"test\"\n}"
+				},
+				"description": "Busca de feiras utilizando ao menos um ou mais dos parâmetros abaixo:\n■ distrito\n■ regiao5\n■ nome_feira\n■ bairro"
+			},
+			"response": []
+		},
+		{
+			"name": "Retorna uma feria de acordo com o ID",
+			"request": {
+				"url": "{{api_url}}/feiras/10/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Retorna somente uma feira de acordo com o ID fornecido."
+			},
+			"response": []
+		}
+	]
+}
