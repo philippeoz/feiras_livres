@@ -41,6 +41,7 @@ Documentação
 
 A documentação da API fica na raiz da aplição, ou seja, assim que você iniciar o servidor e abrir o link principal, irá visualizar toda a documentação.
 Utilizando `coreapi`, temos uma interface simples e intuitiva para interagir com as funcionalidades da api.
+Na raiz do projeto também foi adicionado o arquivo `FeirasLivres.postman_collection.json`, uma collection com exemplos de como utilizar a api que pode ser importado no `Postman` para testar a api.
 
 
 ---
